@@ -48,6 +48,7 @@ between global temperature trends and Munich.
 
 \tableofcontents
 
+\pagebreak
 \section{Extracting the Data}
 The data was extracted and exported to CSV from the Udacity projects website. The SQL queries
 used where:
@@ -73,6 +74,7 @@ the SQL Query in line 2, since this information is not needed for the upcoming a
 Both queries where executed and saved as \texttt{global\_data.csv} and
 \texttt{munich\_data.csv}.
 
+\pagebreak
 \section{Manipulating the Data}
 
 Since I'm familiar with Python and Pandas I chose these tools to manipulate the data.
@@ -111,7 +113,7 @@ The resulting plot is shown in Figure~\ref{global_averages}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\columnwidth]{global_average_temperatures.png}
+    \includegraphics[width=0.7\columnwidth]{global_average_temperatures.png}
     \caption{Earth's average temperatures}
     \label{global_averages}
 \end{figure}
@@ -125,7 +127,7 @@ Figure~\ref{munich_averages}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{munich_average_temperatures.png}
+    \includegraphics[width=0.7\textwidth]{munich_average_temperatures.png}
     \caption{Munich's average temperatures}
     \label{munich_averages}
 \end{figure}
@@ -133,9 +135,10 @@ Figure~\ref{munich_averages}.
 From this plot it is already clear, that the temperature data of munich seems to be more
 steady.
 
+\pagebreak
 \section{Create Clear Data Visualization}
 
-Goal of this report is to make observations about the similarities and differences between the
+Goal of this work is to make observations about the similarities and differences between the
 world averages and Munich's averages, as well as overall trends. Therefore two additional
 figures are introduced, to compare the world and Munich's data.
 
@@ -181,8 +184,10 @@ roundabout double of Munich's temperatures.
 \item The overall spikes and valleys in both data sets matches.
 \item Figure~\ref{rel_comparison} shows that the global temperature is roughly 20\% higher than
 1759 and the Munich temperature is roughly 35\% higher than in 1759.
-\item A detailed inspection of the data showed extreme low temperatures in 1745 and 1752, see
-annex Table~\ref{csv_data}.
+\item A detailed inspection of the data showed extreme low temperatures in the years of 1743,
+1745 and 1752, where the average temperature in Munich was $1.32^\circ$C, $-2.15^\circ$C and $0.53^\circ$C, see
+annex Table~\ref{csv_data}. These could be due to the measurement equipment in the
+18\textsuperscript{th} century, but the global data of also shows a spike at 1752 of $5.78^\circ$C.
 \end{itemize}
 
 \include{joined}
