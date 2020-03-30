@@ -1,0 +1,18 @@
+{
+    "rewrap.reformat": true,
+    "cSpell.words": [
+        "Udacity",
+        "breaklines",
+        "deepblue",
+        "deepgreen",
+        "deepred",
+        "emphstyle",
+        "figsize",
+        "keywordstyle",
+        "numpy",
+        "prebreak",
+        "savefig",
+        "showstringspaces",
+        "ylabel"
+    ]
+}

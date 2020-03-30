@@ -1,0 +1,189 @@
+\documentclass[DIV=11, a4paper, parskip=true]{scrartcl}
+\RequirePackage{listings}
+\RequirePackage{graphicx}
+\RequirePackage[british]{babel}
+\RequirePackage{float}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{color}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{10} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{10}  % for normal
+
+% Custom colors
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+% Python style for highlighting
+\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepgreen},    % Custom highlighting style
+stringstyle=\color{deepred},
+showstringspaces=false,           % 
+breaklines=true,
+prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}
+}
+
+\author{Grzegorz Lippe\\
+{\small \texttt{grzegorz@posteo.de}}}
+\title{Explore Weather Trends}
+\subtitle{Udacity Data Analyst Project}
+\date{30\textsuperscript{th} of March 2020}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document is a analysis of local and global temperature data and comparison of
+the temperature trends of Munich to overall global temperature trends.
+
+It gives a visualization and a written up description of the similarities and differences
+between global temperature trends and Munich.
+\end{abstract}
+
+\tableofcontents
+
+\section{Extracting the Data}
+The data was extracted and exported to CSV from the Udacity projects website. The SQL queries
+used where:
+
+\lstset{language=SQL, basicstyle=\ttm, numbers=left}
+\begin{lstlisting}[caption=SQL queries]
+select * from global_data;
+select year, avg_temp from city_data where city='Munich';
+\end{lstlisting}
+
+The first statement in line 1 selects all data in \texttt{global\_data}, which after inspection
+showed to be two columns, one a year and the other one the global average temperature in
+$^\circ$C. So the first dataset is complete.
+
+The second statement selects the year and corresponding average temperature for the city of
+Munich from the table \texttt{city\_data} which is the closest big city to my home.
+
+Munich was chosen after inspection of the table \texttt{city\_list}, which showed that 3
+German cities are included in the city data. A second inspection of city data showed, that
+there are additional columns present, namely: country and city. These were not selected in
+the SQL Query in line 2, since this information is not needed for the upcoming analysis.
+
+Both queries where executed and saved as \texttt{global\_data.csv} and
+\texttt{munich\_data.csv}.
+
+\section{Manipulating the Data}
+
+Since I'm familiar with Python and Pandas I chose these tools to manipulate the data.
+The following listing shows the method I used to import \texttt{global\_data.csv}
+
+\begin{lstlisting}[language=Python, caption=Import the data from \texttt{global\_data}]
+global_data = pd.read_csv('global_data.csv',
+    names=['Year', 'Yearly Global Average Temperature'],
+    index_col='Year',
+    header=0)
+
+for window in [5, 10, 20]:
+    global_data['%d years global moving average temperature' % (window)] =\
+        global_data['Yearly Global Average Temperature'].rolling(window=window).mean()
+
+_, ax = plt.subplots(figsize=(14, 8))
+global_data.plot(ax=ax, title='Global (moving) average Temperatures')
+plt.ylabel('Average Temperature [C]')
+plt.grid(True)
+plt.savefig('./global_average_temperatures.png')
+\end{lstlisting}
+
+In the first four lines the csv data is imported and cast into a Pandas DataFrame. I chose to
+use the year as an index for the DataFrame. This is beneficial, because the index is used for
+the abscissa values within the DataFrame plot method.
+
+In the lines 6 to 8 a for loop is used to add columns with [5, 10, 20] years of moving average.
+The moving average is calculated by a combination of the DataFrame Methods \texttt{rolling()}
+and the numpy method \texttt{mean()}.
+
+In the last lines 10ff a figure is created, which shows the contents of the DataFrame. These
+are the global average temperature and the three moving averages within the time span. It is
+from the 1750s up until 2015.
+
+The resulting plot is shown in Figure~\ref{global_averages}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{global_average_temperatures.png}
+    \caption{Earth's average temperatures}
+    \label{global_averages}
+\end{figure}
+
+It can be seen, that the 5 years moving average isn't very smooth, yet the 20 years moving
+average is so smooth, that it misses the cold period in the 1820's quite a bit. So therefore a
+10 years moving average is chosen.
+
+The same methodology is used for the Munich's data and yields the following
+Figure~\ref{munich_averages}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{munich_average_temperatures.png}
+    \caption{Munich's average temperatures}
+    \label{munich_averages}
+\end{figure}
+
+From this plot it is already clear, that the temperature data of munich seems to be more
+steady.
+
+\section{Create Clear Data Visualization}
+
+Goal of this report is to make observations about the similarities and differences between the
+world averages and Munich's averages, as well as overall trends. Therefore two additional
+figures are introduced, to compare the world and Munich's data.
+
+Figure \ref{comparison} shows the global and Munich's 10 years moving average temperature
+combined in one plot. The dates range from the late 1750s to 2015. The temperatures range from
+roundabout $4^\circ$C to $9.5^\circ$C.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{comparison_average_temperatures.png}
+    \caption{Absolute average temperature comparison}
+    \label{comparison}
+\end{figure}
+
+From Figure~\ref{comparison} it is difficult to see similarities because the global temperature
+is roundabout two times higher thant the moving average temperature of Munich. Therefore in
+Figure~\ref{rel_comparison} the values where normalized.
+
+Both moving average datasets start at 1759, so the value of that year was taken to divide both
+temperatures series by it and thereby setting these years values to 100\%.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{rel_comparison_average_temperatures.png}
+    \caption{Relative average temperature comparison}
+    \label{rel_comparison}
+\end{figure}
+
+\section{Interpret Weather Trends}
+
+This section provides (at least four) observations, which I provide, drawn from my own
+visualizations.
+
+\begin{itemize}
+\item Figure \ref{global_averages} show that the global year averages where fluctuating around
+$8^\circ$C up until the 1920s.
+\item Figure \ref{global_averages}, or Figure \ref{comparison} also show, that the global
+yearly average temperature increased by roundabout 1.5$^\circ$C in the last 100 years.
+\item There seems to have been a pause in the global temperature increase from the 1950s until
+the 1970s.
+\item The comparison Figure~\ref{comparison} show that the global average temperature is
+roundabout double of Munich's temperatures.
+\item The overall spikes and valleys in both data sets matches.
+\item Figure~\ref{rel_comparison} shows that the global temperature is roughly 20\% higher than
+1759 and the Munich temperature is roughly 35\% higher than in 1759.
+\item A detailed inspection of the data showed extreme low temperatures in 1745 and 1752, see
+annex Table~\ref{csv_data}.
+\end{itemize}
+
+\include{joined}
+\end{document}
