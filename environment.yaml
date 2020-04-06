@@ -1,10 +1,7 @@
 name: udacity
 channels:
   - defaults
-  - http://rb-conda.bosch.com/repo.anaconda.com.main
-  - http://rb-conda.bosch.com/repo.anaconda.com.free
-  - http://rb-conda.bosch.com/repo.anaconda.com.r
-  - http://rb-conda.bosch.com/simconnect.dev
+  - anaconda 
 dependencies:
   - agate=1.6.1=py36_2
   - agate-dbf=0.2.1=py_0
@@ -15,7 +12,6 @@ dependencies:
   - backcall=0.1.0=py36_0
   - blas=1.0=mkl
   - bleach=3.1.0=py36_0
-  - bosch-ca=1.0=1
   - ca-certificates=2020.1.1=0
   - certifi=2019.11.28=py36_1
   - colorama=0.4.3=py_0
