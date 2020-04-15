@@ -17,7 +17,7 @@ dependencies:
   - bleach=3.1.0=py36_0
   - bosch-ca=1.0=1
   - ca-certificates=2020.1.1=0
-  - certifi=2019.11.28=py36_1
+  - certifi=2020.4.5.1=py36_0
   - colorama=0.4.3=py_0
   - csvkit=1.0.4=py36_0
   - cycler=0.10.0=py36h009560c_0
@@ -39,6 +39,7 @@ dependencies:
   - jdcal=1.4.1=py_0
   - jedi=0.16.0=py36_1
   - jinja2=2.11.1=py_0
+  - joblib=0.14.1=py_0
   - jpeg=9b=vc14h4d7706e_1
   - jsonschema=3.2.0=py36_0
   - jupyter=1.0.0=py36_7
@@ -77,6 +78,7 @@ dependencies:
   - pandocfilters=1.4.2=py36_1
   - parsedatetime=2.4=py36_0
   - parso=0.6.2=py_0
+  - patsy=0.5.1=py36_0
   - pickleshare=0.7.5=py36_0
   - pip=20.0.2=py36_1
   - prometheus_client=0.7.1=py_0
@@ -97,6 +99,7 @@ dependencies:
   - qt=5.6.2=vc14h6f8c307_12
   - qtconsole=4.7.2=py_0
   - qtpy=1.9.0=py_0
+  - scikit-learn=0.22.1=py36h6288b17_0
   - scipy=1.4.1=py36h9439919_0
   - seaborn=0.10.0=py_0
   - send2trash=1.5.0=py36_0
@@ -105,6 +108,7 @@ dependencies:
   - six=1.14.0=py36_0
   - sqlalchemy=1.3.15=py36he774522_1
   - sqlite=3.31.1=he774522_0
+  - statsmodels=0.11.0=py36he774522_0
   - terminado=0.8.3=py36_0
   - testpath=0.4.4=py_0
   - text-unidecode=1.3=py_0
