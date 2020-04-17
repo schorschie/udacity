@@ -1,5 +1,6 @@
 name: udacity
 channels:
+  - conda-forge
   - defaults
   - http://rb-conda.bosch.com/repo.anaconda.com.main
   - http://rb-conda.bosch.com/repo.anaconda.com.free
@@ -16,8 +17,9 @@ dependencies:
   - blas=1.0=mkl
   - bleach=3.1.0=py36_0
   - bosch-ca=1.0=1
-  - ca-certificates=2020.1.1=0
-  - certifi=2020.4.5.1=py36_0
+  - brewer2mpl=1.4.1=py_3
+  - ca-certificates=2020.4.5.1=hecc5488_0
+  - certifi=2020.4.5.1=py36h9f0ad1d_0
   - colorama=0.4.3=py_0
   - csvkit=1.0.4=py36_0
   - cycler=0.10.0=py36h009560c_0
@@ -27,6 +29,7 @@ dependencies:
   - entrypoints=0.3=py36_0
   - et_xmlfile=1.0.1=py36h3d2d736_0
   - freetype=2.9.1=ha9979f8_1
+  - ggplot=0.11.5=py_5
   - icc_rt=2019.0.0=h0cc432a_1
   - icu=58.2=vc14hc45fdbb_0
   - importlib_metadata=1.5.0=py36_0
@@ -72,8 +75,8 @@ dependencies:
   - numpy=1.18.1=py36h93ca92e_0
   - numpy-base=1.18.1=py36hc3f5095_1
   - openpyxl=3.0.3=py_0
-  - openssl=1.0.2u=he774522_0
-  - pandas=1.0.3=py36h47e9c7a_0
+  - openssl=1.0.2u=hfa6e2cd_0
+  - pandas=0.22.0=py36_1
   - pandoc=2.2.3.2=0
   - pandocfilters=1.4.2=py36_1
   - parsedatetime=2.4=py36_0
@@ -91,6 +94,7 @@ dependencies:
   - python=3.6.10=h9f7ef89_1
   - python-dateutil=2.8.1=py_0
   - python-slugify=3.0.4=py_0
+  - python_abi=3.6=1_cp36m
   - pytimeparse=1.1.8=py36_0
   - pytz=2019.3=py_0
   - pywin32=227=py36he774522_1
