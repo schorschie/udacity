@@ -1,4 +1,8 @@
+# Folders
+.vscode
 .ipynb_checkpoints
+
+# Files
 *.toc
 *.aux
 *.log
