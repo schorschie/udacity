@@ -2,6 +2,7 @@
     "rewrap.reformat": true,
     "cSpell.words": [
         "Udacity",
+        "anotb",
         "breaklines",
         "deepblue",
         "deepgreen",
@@ -9,10 +10,15 @@
         "emphstyle",
         "figsize",
         "keywordstyle",
+        "notab",
+        "notanotb",
+        "notb",
         "numpy",
         "prebreak",
+        "prob",
         "savefig",
         "showstringspaces",
         "ylabel"
-    ]
+    ],
+    "python.pythonPath": "C:\\Users\\grzeg\\Anaconda3\\python.exe"
 }
