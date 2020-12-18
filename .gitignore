@@ -1,6 +1,8 @@
 # Folders
 .vscode
 .ipynb_checkpoints
+machine_learning/02_Software_Engineering_Fundamentals/lesson_05/dist
+machine_learning/02_Software_Engineering_Fundamentals/lesson_05/rki_scraper.egg-info
 
 # Files
 *.toc

@@ -1,6 +1,0 @@
-setup.py
-rki_scraper.egg-info/PKG-INFO
-rki_scraper.egg-info/SOURCES.txt
-rki_scraper.egg-info/dependency_links.txt
-rki_scraper.egg-info/not-zip-safe
-rki_scraper.egg-info/top_level.txt
