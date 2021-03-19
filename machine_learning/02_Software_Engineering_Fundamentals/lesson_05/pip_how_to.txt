@@ -1,0 +1,15 @@
+# installation
+cd binomial_package_files
+pip install twine
+
+
+# commands to upload to the pypi test repository
+python setup.py sdist
+twine upload --repository-url https://test.pypi.org/legacy/ dist/* --verbose
+pip install --index-url https://test.pypi.org/simple/ dsnd-probability
+
+# command to upload to the pypi repository
+twine upload dist/*
+pip install dsnd-probability
+
+MpmXynzSqwD3cJc

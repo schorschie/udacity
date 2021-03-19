@@ -6,7 +6,7 @@ with open(path.join(this_directory, 'rki_scraper', 'README.md'), encoding='utf-8
     long_description = f.read()
 
 setup(name='rki_scraper',
-      version='0.1.7',
+      version='0.1.8',
       description='Scrape the RKI Data from Arcgis into a Pandas Dataframe',
       long_description=long_description,
       long_description_content_type='text/markdown',
