@@ -2,7 +2,7 @@ alphalens
 colour
 cvxpy
 cycler
-numpy==1.17.0
+numpy==1.22.0
 pandas
 plotly
 pyparsing
