@@ -13,5 +13,5 @@ quandl==3.3.0
 scipy==1.0.0
 scikit-learn==0.19.1
 six==1.11.0
-tqdm==4.19.5
+tqdm==4.66.3
 zipline===1.2.0
